@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <!-- Meta tags for social media banners, these should be filled in appropriatly as they are your "business card" -->
+  <!-- Replace the content tag with appropriate information -->
+  <meta name="description" content="HMC: Learning Heterogeneous Meta-Control for Contact-Rich Loco-Manipulation">
+  <meta property="og:title" content="" />
+  <meta property="og:description" content="" />
+  <meta property="og:url" content="https://hmc-anonymous.github.io/" />
+  <!-- <meta property="og:image" content="static/images/banner.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" /> -->
+
+
+  <meta name="twitter:title" content="">
+  <meta name="twitter:description" content="">
+  <!-- <meta name="twitter:image" content="static/images/twitter_banner.png"> -->
+  <!-- <meta name="twitter:card" content="summary_large_image"> -->
+  <!-- Keywords for your paper to be indexed by-->
+  <meta name="keywords" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+  <title>HMC: Learning Heterogeneous Meta-Control for Contact-Rich Loco-Manipulation</title>
+  <link rel="icon" type="image/x-icon" href="static/images/favicon.ico">
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+
+  <link rel="stylesheet" href="static/css/bulma.min.css">
+  <link rel="stylesheet" href="static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="static/css/index.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://documentcloud.adobe.com/view-sdk/main.js"></script>
+  <script defer src="static/js/fontawesome.all.min.js"></script>
+  <script src="static/js/bulma-carousel.min.js"></script>
+  <script src="static/js/bulma-slider.min.js"></script>
+  <script src="static/js/index.js"></script>
+</head>
+
+<body>
+
+
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <h1 class="title is-2 publication-title">HMC: Learning Heterogeneous Meta-Control for Contact-Rich
+              Loco-Manipulation</h1>
+            <h1 class="title is-4 publication-title">
+              ICRA 2026 Under Review
+            </h1>
+
+
+            <div class="is-size-5 publication-authors">
+              Anonymous Authors
+            </div>
+
+            <!-- <div class="column has-text-centered">
+              <div class="publication-links">
+                <span class="link-block">
+                  <a href="" target="_blank"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                    </span>
+                    <span>Paper</span>
+                  </a>
+                </span>
+
+                <span class="link-block">
+                  <a href="" target="_blank"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fab fa-github"></i>
+                    </span>
+                    <span>Code</span>
+                  </a>
+                </span>
+
+                <span class="link-block">
+                  <a href="" target="_blank"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                    </span>
+                    <span>arXiv</span>
+                  </a>
+                </span>
+              </div>
+            </div> -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Teaser video-->
+  <section class="hero teaser">
+    <div class="container is-max-desktop">
+      <div class="hero-body">
+        <video poster="" id="tree" autoplay controls muted loop height="100%">
+          <!-- Your video here -->
+          <source src="static/videos/teaser-video-small.mp4" type="video/mp4">
+        </video>
+      </div>
+    </div>
+  </section>
+  <!-- End teaser video -->
+
+  <!-- Paper abstract (always visible) -->
+  <section class="section hero is-light" id="abstract">
+    <div class="container is-max-desktop">
+      <h2 class="title is-3 mb-0">Abstract</h2>
+      <div class="content has-text-justified mt-4">
+        <p>
+          Learning from real-world robot demonstrations holds promise for interacting with complex real-world
+          environments. However, the complexity and variability of interaction dynamics often cause purely positional
+          controllers to struggle with contacts or varying payloads. To address this, we propose a
+          <strong>H</strong>eterogeneous <strong>M</strong>eta-<strong>C</strong>ontrol (HMC) framework for Loco-Manipulation that adaptively stitches
+          multiple control modalities: position, impedance, and hybrid force-position. We first introduce an
+          interface, <strong>HMC-Controller</strong>, for blending actions from different control profiles
+          <em>continuously in the torque space</em>. HMC-Controller facilitates both teleoperation and policy
+          deployment. Then, to learn a robust force-aware policy, we propose <strong>HMC-Policy</strong> to unify
+          different controllers into a heterogeneous architecture. We adopt a mixture-of-experts style routing to
+          learn from large-scale position-only data and fine-grained force-aware demonstrations. Experiments on a real
+          humanoid robot show over 50% relative improvement vs. baselines on challenging tasks such as compliant table
+          wiping and drawer opening, demonstrating the efficacy of HMC.
+        </p>
+      </div>
+    </div>
+  </section>
+  <!-- End paper abstract -->
+
+  <!-- Motivation Section replaced with image + text layout -->
+  <section class="section" id="motivation">
+    <div class="container is-max-desktop">
+      <h2 class="title is-3 has-text-centered">HMC-Controllers</h2>
+      <div class="columns is-vcentered">
+        <!-- Left: Image -->
+        <div class="column is-half">
+          <figure class="image">
+            <img src="static/images/teleop-singlecolumn.png"
+              style="border-radius:8px;box-shadow:0 4px 14px rgba(0,0,0,0.15);">
+            <figcaption>
+            </figcaption>
+          </figure>
+          <p class="has-text-grey is-size-7 has-text-centered mt-2"></p>
+        </div>
+        <!-- Right: Text --> 
+        <div class="column is-half">
+          <p class="has-text-justified">
+            We propose <strong>HMC-Controllers</strong>, a unified control interface that
+            seamlessly blends position, impedance, and hybrid force-position controllers in the torque space.
+            This allows for adaptive control strategies that can handle complex interactions with the environment.
+            HMC-Controllers facilitate both teleoperation and policy deployment, enabling robots to perform
+            contact-rich tasks safely and effectively.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- End Motivation Section -->
+
+  <!-- Replace Method Overview hero teaser with image + paragraph layout -->
+  <section class="section" id="method-overview">
+    <div class="container is-max-desktop">
+      <h2 class="title is-3 has-text-centered">HMC-Policy</h2>
+      <div class="columns is-centered">
+        <div class="column is-12 has-text-centered">
+          <figure class="image">
+            <img src="static/images/hmc_policy.jpg" 
+              style="border-radius:8px;box-shadow:0 4px 14px rgba(0,0,0,0.15);">
+          </figure>
+          <p class="mt-4 has-text-justified">
+            We introduce <strong>HMC-Policy</strong>, a heterogeneous policy architecture that
+            integrates multiple control modalities using a mixture-of-experts approach. This design allows the
+            policy to leverage large-scale position-only data alongside fine-grained force-aware demonstrations,
+            enabling robust learning for contact-rich tasks. HMC-Policy effectively routes control commands to
+            appropriate controllers based on the task context, enhancing the robot's ability to adapt to varying
+            interaction dynamics.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- End Method Overview Section -->
+
+  <section class="hero teaser">
+    <div class="container is-max-desktop">
+      <div class="hero-body">
+        <div class="columns is-centered has-text-centered">
+          <h2 class="title is-3">Quantitative Results</h2>
+        </div>
+        <p>
+          The table below summarizes the quantitative results of our HMC Policy on three tasks: Wipe Table, Lift Bottle, and Open Drawer.
+          Our policy outperforms baselines by a large margin in the success rates.
+        </p>
+        <figure class="image mb-5">
+          <img src="static/images/main-table.png" alt="Simulation quantitative results table"
+            style="width:40%;display:block;margin:0 auto;border-radius:8px;box-shadow:0 4px 14px rgba(0,0,0,0.15);">
+        </figure>
+        <p>
+          The table of ablation study further demonstrates the effectiveness of each component in our HMC framework.
+        </p>
+        <figure class="image mb-5">
+          <img src="static/images/ablation-table.png" alt="Real-world quantitative results table"
+            style="width:70%;display:block;margin:0 auto;border-radius:8px;box-shadow:0 4px 14px rgba(0,0,0,0.15);">
+        </figure>
+
+      </div>
+    </div>
+  </section>
+
+
+  <footer class="footer">
+    <div class="container">
+      <div class="columns is-centered">
+        <div class="column is-8">
+          <div class="content">
+
+            <p>
+              This page was built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template"
+                target="_blank">Academic Project Page Template</a> which was adopted from the <a
+                href="https://nerfies.github.io" target="_blank">Nerfies</a> project page.
+              You are free to borrow the source code of this website, we just ask that you link back to this page in the
+              footer. <br> This website is licensed under a <a rel="license"
+                href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Creative
+                Commons Attribution-ShareAlike 4.0 International License</a>.
+            </p>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Statcounter tracking code -->
+
+  <!-- You can add a tracker to track page visits by creating an account at statcounter.com -->
+
+  <!-- End of Statcounter Code -->
+
+  <script>
+    // Toggle label text for abstract collapsible
+    document.addEventListener('DOMContentLoaded', () => {
+      const details = document.querySelector('.abstract-collapsible');
+      const label = document.getElementById('abstract-toggle-text');
+      if (details && label) {
+        details.addEventListener('toggle', () => {
+          label.textContent = details.open ? 'Hide' : 'Show';
+        });
+      }
+    });
+  </script>
+
+</body>
+
+</html>
